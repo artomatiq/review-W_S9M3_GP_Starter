@@ -8,5 +8,9 @@ export function useAuth(redirect) {
 }
 
 export function useInput(name, initialValue = '') {
+    const [value, setValue] = useState(initialValue)
 
+    const onChange = e => setValue(e.target.value)
+
+    return {name, value, onChange}
 }
