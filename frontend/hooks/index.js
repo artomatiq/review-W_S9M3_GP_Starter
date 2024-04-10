@@ -4,7 +4,9 @@ import axios from 'axios'
 const BASE_URL = 'http://localhost:9009/acme/auth'
 
 export function useAuth(redirect) {
+    const [auth, setAuth] = useState(null)
 
+    
 }
 
 export function useInput(name, initialValue = '') {
