@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import {useAuth, useInput} from '../hooks'
+import {useInput} from '../hooks'
 
 const BASE_URL = 'http://localhost:9009/acme/auth'
 
 export default function Login() {
   const navigate = useNavigate()
   const [message, setMessage] = useState('')
+  const usernameInput = useInput('username');
+  const passwordInput = useInput('password');
+
   const onSubmit = async e => {
     e.preventDefault()
     const payload = {
@@ -23,10 +26,6 @@ export default function Login() {
       setMessage(err.response?.data?.message || 'Something bad happened')
     }
   }
-
-  const usernameInput = useInput('username');
-  const passwordInput = useInput('password');
-
   
   return (
     <div className="screen">
